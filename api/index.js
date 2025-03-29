@@ -1,29 +1,163 @@
 const { createCanvas } = require('@napi-rs/canvas');
 const Chart = require('chart.js/auto');
+const { MatrixController, MatrixElement } = require('chartjs-chart-matrix');
+
+Chart.register(MatrixController, MatrixElement);
 
 const chartConfig = {
     "data": {
-        "labels": [
-            2015
-        ],
         "datasets": [
             {
                 "data": [
-                    32
+                    {
+                        "v": 1,
+                        "x": 1,
+                        "y": 5
+                    },
+                    {
+                        "v": 3,
+                        "x": 1,
+                        "y": 6
+                    },
+                    {
+                        "v": 1,
+                        "x": 2,
+                        "y": 0
+                    },
+                    {
+                        "v": 9,
+                        "x": 2,
+                        "y": 1
+                    },
+                    {
+                        "v": 2,
+                        "x": 2,
+                        "y": 2
+                    },
+                    {
+                        "v": 2,
+                        "x": 2,
+                        "y": 4
+                    },
+                    {
+                        "v": 2,
+                        "x": 2,
+                        "y": 5
+                    },
+                    {
+                        "v": 1,
+                        "x": 2,
+                        "y": 6
+                    },
+                    {
+                        "v": 11,
+                        "x": 3,
+                        "y": 1
+                    },
+                    {
+                        "v": 1,
+                        "x": 3,
+                        "y": 2
+                    },
+                    {
+                        "v": 1,
+                        "x": 3,
+                        "y": 3
+                    },
+                    {
+                        "v": 4,
+                        "x": 3,
+                        "y": 4
+                    },
+                    {
+                        "v": 1,
+                        "x": 3,
+                        "y": 6
+                    },
+                    {
+                        "v": 4,
+                        "x": 4,
+                        "y": 0
+                    },
+                    {
+                        "v": 17,
+                        "x": 4,
+                        "y": 1
+                    },
+                    {
+                        "v": 1,
+                        "x": 4,
+                        "y": 2
+                    },
+                    {
+                        "v": 2,
+                        "x": 4,
+                        "y": 4
+                    },
+                    {
+                        "v": 9,
+                        "x": 5,
+                        "y": 0
+                    },
+                    {
+                        "v": 3,
+                        "x": 5,
+                        "y": 1
+                    },
+                    {
+                        "v": 1,
+                        "x": 5,
+                        "y": 2
+                    },
+                    {
+                        "v": 2,
+                        "x": 5,
+                        "y": 4
+                    },
+                    {
+                        "v": 1,
+                        "x": 5,
+                        "y": 5
+                    }
                 ],
-                "label": "Number of Orders",
-                "borderColor": "rgba(75, 192, 192, 1)",
-                "borderWidth": 1,
-                "backgroundColor": "rgba(75, 192, 192, 0.2)"
+                "label": "Order Count",
+                "backgroundColor": "rgba(128, 0, 128, 0.6)"
             }
         ]
     },
-    "type": "bar",
+    "type": "matrix",
     "options": {
+        "scales": {
+            "x": {
+                "grid": {
+                    "display": false
+                },
+                "type": "linear",
+                "ticks": {
+                    "autoSkip": false,
+                    "stepSize": 1
+                },
+                "offset": true
+            },
+            "y": {
+                "grid": {
+                    "display": false
+                },
+                "type": "linear",
+                "ticks": {
+                    "autoSkip": false,
+                    "stepSize": 1
+                },
+                "offset": true
+            }
+        },
         "plugins": {
             "title": {
-                "text": "Yearly Order Count",
+                "text": "Daily Order Distribution by Week in 2015",
                 "display": true
+            },
+            "legend": {
+                "display": false
             },
             "datalabels": {
                 "display": false

@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@napi-rs/canvas": "^0.1.44",
-    "chart.js": "^4.4.8"
+    "chart.js": "^4.4.8",
+    "chartjs-chart-matrix": "^3.0.0"
   }
 }
