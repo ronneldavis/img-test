@@ -2,22 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/*.js",
+      "src": "api/index.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/node-canvas",
-      "dest": "/api/node-canvas.js"
-    },
-    {
-      "src": "/napi-canvas",
-      "dest": "/api/napi-canvas.js"
-    },
-    {
-      "src": "/skia-canvas",
-      "dest": "/api/skia-canvas.js"
+      "src": "/(.*)",
+      "dest": "/api/index.js"
     }
   ]
 } 
