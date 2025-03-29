@@ -174,10 +174,14 @@ function convertDatasetFormat(config) {
         ...config,
         data: {
             ...config.data,
-            labels: config.data.labels.map(String),
             datasets: config.data.datasets.map(dataset => ({
                 ...dataset,
-                data: dataset.data.map(Number)
+                data: dataset.data.map(item => ({
+                    ...item,
+                    v: Number(item.v),
+                    x: Number(item.x),
+                    y: Number(item.y)
+                }))
             }))
         }
     };
