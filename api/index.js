@@ -34,13 +34,29 @@ const chartConfig = {
     }
 };
 
+// Function to convert dataset format
+function convertDatasetFormat(config) {
+    return {
+        ...config,
+        data: {
+            ...config.data,
+            labels: config.data.labels.map(String),
+            datasets: config.data.datasets.map(dataset => ({
+                ...dataset,
+                data: dataset.data.map(Number)
+            }))
+        }
+    };
+}
+
 module.exports = async (req, res) => {
     try {
         const canvas = createCanvas(800, 400);
         const ctx = canvas.getContext('2d');
 
-        // Create chart
-        new Chart(ctx, chartConfig);
+        // Convert dataset format and create chart
+        const convertedConfig = convertDatasetFormat(chartConfig);
+        new Chart(ctx, convertedConfig);
 
         // Set response headers
         res.setHeader('Content-Type', 'image/png');
