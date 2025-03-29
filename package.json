@@ -8,7 +8,6 @@
   },
   "dependencies": {
     "@napi-rs/canvas": "^0.1.44",
-    "chart.js": "^4.4.8",
-    "skia-canvas": "^1.0.1"
+    "chart.js": "^4.4.8"
   }
 }
